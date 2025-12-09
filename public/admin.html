@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - HR Website</title>
+  <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+  <header>
+    <h1>Admin Panel</h1>
+    <a href="index.html" class="back-link">← Back to Site</a>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2 id="form-title">Add New Job Poster</h2>
+      <form id="poster-form">
+        <input type="hidden" id="poster-id">
+        
+        <div class="form-group">
+          <label for="banner">Banner Image</label>
+          <input type="file" id="banner" accept="image/*">
+          <div id="banner-preview"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="title">Job Title (English) *</label>
+          <input type="text" id="title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="titleKh">Job Title (Khmer)</label>
+          <input type="text" id="titleKh">
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description (English) *</label>
+          <textarea id="description" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="descriptionKh">Description (Khmer)</label>
+          <textarea id="descriptionKh" rows="4"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="applyButtonText">Apply Button Text (English)</label>
+          <input type="text" id="applyButtonText" placeholder="Apply Now">
+        </div>
+
+        <div class="form-group">
+          <label for="applyButtonTextKh">Apply Button Text (Khmer)</label>
+          <input type="text" id="applyButtonTextKh" placeholder="ដាក់ពាក្យ">
+        </div>
+
+        <div class="form-group">
+          <label for="applyLink">Apply Link (URL)</label>
+          <input type="url" id="applyLink" placeholder="https://example.com/apply">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+1234567890">
+        </div>
+
+        <div class="form-group">
+          <label for="telegram">Telegram Link</label>
+          <input type="url" id="telegram" placeholder="https://t.me/username">
+        </div>
+
+        <div class="form-group">
+          <label for="facebook">Facebook Link</label>
+          <input type="url" id="facebook" placeholder="https://facebook.com/page">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="hr@company.com">
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-primary">Save Poster</button>
+          <button type="button" class="btn btn-secondary" onclick="resetForm()">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="form-section">
+      <h2>Website Settings</h2>
+      <form id="settings-form">
+        <div class="form-group">
+          <label for="language">Display Language</label>
+          <select id="language">
+            <option value="en">English</option>
+            <option value="kh">ភាសាខ្មែរ (Khmer)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="headerText">Header Text (English)</label>
+          <input type="text" id="headerText" placeholder="Job Opportunities">
+        </div>
+
+        <div class="form-group">
+          <label for="headerTextKh">Header Text (Khmer)</label>
+          <input type="text" id="headerTextKh" placeholder="ឱកាសការងារ">
+        </div>
+
+        <div class="form-group">
+          <label for="titleFont">Title Font</label>
+          <select id="titleFont">
+            <option value="Segoe UI">Segoe UI</option>
+            <option value="Arial">Arial</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Khmer OS Battambang">Khmer OS Battambang</option>
+            <option value="Khmer OS Siemreap">Khmer OS Siemreap</option>
+            <option value="Khmer OS Muol Light">Khmer OS Muol Light</option>
+            <option value="Hanuman">Hanuman</option>
+            <option value="Bayon">Bayon</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="descriptionFont">Description Font</label>
+          <select id="descriptionFont">
+            <option value="Segoe UI">Segoe UI</option>
+            <option value="Arial">Arial</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Khmer OS Battambang">Khmer OS Battambang</option>
+            <option value="Khmer OS Siemreap">Khmer OS Siemreap</option>
+            <option value="Khmer OS Muol Light">Khmer OS Muol Light</option>
+            <option value="Hanuman">Hanuman</option>
+            <option value="Bayon">Bayon</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Settings</button>
+      </form>
+    </section>
+
+    <section class="posters-list">
+      <h2>Manage Posters</h2>
+      <div id="admin-posters-container"></div>
+    </section>
+  </main>
+
+  <script src="admin-script.js"></script>
+</body>
+</html>
