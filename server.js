@@ -183,6 +183,12 @@ app.post('/api/login', (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// For Vercel serverless
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  // For local development
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
